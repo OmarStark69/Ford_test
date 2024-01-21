@@ -5,10 +5,13 @@ fun int_to_rom(num: String){
     val num = num.reversed()    // reverse number to start with the units
     val roman = StringBuilder()
     for (i in num.indices) {    // for each digit
+        var div5 = (num[i].digitToInt()%9) / 5  // is a 5?
+        var div4 = (num[i].digitToInt()%9%5) / 4 // is a 4?
         var mod4 = (num[i].digitToInt()%5) % 4 // is a 1,2 or 3?
         roman.insert(0,letters[2*i].repeat(mod4))   // add 1,2 or 3 symbols
         if ((2*i+1)<letters.size){  // if it is not the last number represented by the max roman symbol
             roman.insert(0,letters[2*i].plus(letters[2*i+1]).repeat(div4))  // add "4" symbols
+            roman.insert(0,letters[2*i+1].repeat(div5)) // add "5" symbols
             }}
     println(roman)}
 
