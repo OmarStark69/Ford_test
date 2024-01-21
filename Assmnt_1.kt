@@ -7,7 +7,9 @@ fun int_to_rom(num: String){
     for (i in num.indices) {    // for each digit
         var mod4 = (num[i].digitToInt()%5) % 4 // is a 1,2 or 3?
         roman.insert(0,letters[2*i].repeat(mod4))   // add 1,2 or 3 symbols
-        }
+        if ((2*i+1)<letters.size){  // if it is not the last number represented by the max roman symbol
+            roman.insert(0,letters[2*i].plus(letters[2*i+1]).repeat(div4))  // add "4" symbols
+            }}
     println(roman)}
 
 fun main() {
