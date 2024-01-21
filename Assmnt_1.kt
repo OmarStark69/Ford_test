@@ -1,6 +1,9 @@
 fun int_to_rom(num: String){
     val letters = arrayOf("I", "V", "X", "L", "C", "D", "M") // array of roman symbols
     val max = 4*Math.pow(10.toDouble(),(letters.size/2).toDouble()).toInt() // max value of roman number
+    if (num.toInt() > max-1) { // if the number is greater than max value
+        println("Number must be less than ${max}") // print error
+        return} // exit function
     print("${num}\t---->\t")
     val num = num.reversed()    // reverse number to start with the units
     val roman = StringBuilder()
