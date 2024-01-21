@@ -6,7 +6,7 @@ fun rom_to_dec(roman: String){
     var pos = letters.size -1 // initialize position of symbol with max value
     while (roman.length>0){
        if (letters[pos]==roman[0].toString().uppercase()) { // if the first char of roman is the current symbol
-            num += Math.pow(10.toDouble(),((pos+1)/2).toDouble()).toInt()/(1+pos%2) // add value of symbol to number
+            num += Math.pow(10.toDouble(),((pos+1)/2).toDouble()).toInt()/(1 + pos%2) // add value of symbol to number
             roman = roman.drop(1) // remove first char of roman
        }else{pos--} // if the first char of roman is not the current symbol, try with the next one with less value
        if (pos==-1){pos = letters.size -1} // if the first char of roman is not any symbol, start again with the symbol with max value
